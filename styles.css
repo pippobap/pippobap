@@ -1,104 +1,107 @@
 body {
-   margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
 }
-   
+
+/* ==================== Keyframes ==================== */
+@keyframes rotating {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp2 {
+    from { transform: translateY(0%); }
+    to { transform: translateY(-50%); }
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ==================== Scene 1 ==================== */
 .anim {
     position: absolute;
-    top:50%;
-    left:50%;
+    top: 50%;
+    left: 50%;
     margin-left: -209px;
     margin-top: -129px;
     animation: rotating 4s linear infinite;
+    cursor: pointer; /* 첫 번째 화면 클릭 유도 */
 }
 
-@keyframes rotating {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-
-@keyframes slideUp{
-    from {
-        transform: translateY(100%);
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slideUp2{
-    from {
-        transform: translateY(0%);
-    }
-    to {
-        transform: translateY(-50%);
-    }
-}
-
-.curtain{
-    top:100%;
+/* ==================== Scene 2 & 3 (Curtain) ==================== */
+.curtain {
+    position: absolute; /* 위치 잡기를 위해 추가 권장 */
+    top: 100%;
     opacity: 0;
     animation: slideUp 2s forwards;
-    width: 100%
+    width: 100%;
 }
+
 .curtain2 {
-    top:100%;
+    position: absolute; /* 위치 잡기를 위해 추가 권장 */
+    top: 100%;
     opacity: 1;
     width: 100%;
     animation: slideUp2 2s forwards;
 }
 
-.alpaca{
-  opacity: 0;
+/* ==================== Scene 2 & 3 (Alpaca) ==================== */
+/* 장면 2의 알파카 */
+.alpaca {
+    opacity: 0;
     position: absolute;
     z-index: 10;
     top: 450px;
-    left:50%;
-    width:200px;
-    margin-left:-100px;
+    left: 50%;
+    width: 200px;
+    margin-left: -100px;
     animation: fadein 5s 3s forwards;
+    
+    /* ★ 여기에 커서 추가됨 ★ */
+    cursor: url('img/patme32px.png'), auto;
 }
-.alpaca2{
+
+/* 장면 3의 알파카 */
+.alpaca2 {
     opacity: 1;
     position: absolute;
     z-index: 10;
     top: 450px;
-    left:50%;
-    width:200px;
-    margin-left:-100px;
-    cursor:url('img/patme32px.png'),auto;
-}
-@keyframes fadein{
-    from{
-        opacity: 0;
-    }
-    to{
-        opacity: 1;
-    }
+    left: 50%;
+    width: 200px;
+    margin-left: -100px;
+    
+    /* ★ 여기에 커서 있음 ★ */
+    cursor: url('img/patme32px.png'), auto;
 }
 
+/* ==================== Infobox ==================== */
 .infobox {
     background-color: #fff;
-    border-radius:12px;
+    border-radius: 12px;
     height: 500px;
-    width:300px;
+    width: 300px;
     position: absolute;
     z-index: 10;
     top: 300px;
-    left:300px;
+    left: 300px;
     padding: 20px;
-    display:none;
+    display: none;
 }
 
 .infobox ul {
     font-family: monospace;
     font-size: 25px;
-    color:grey;
+    color: grey;
+}
+
+.infobox li {
+    margin-bottom: 20px;
 }
