@@ -1,95 +1,52 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Doyeon Kwon</title>
-    <link rel="stylesheet" href="styles.css">
     
-    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-
-    <style>
-        /* 초기 설정: 장면 2와 3은 숨김 처리 */
-        #scene2, #scene3 {
-            display: none;
-        }
-
-        /* 클릭 가능한 이미지에 마우스 커서 표시 */
-        .anim, .alpaca, .alpaca2 {
-            cursor: pointer;
-        }
-
-        /* lama3에 있던 스타일 정리 */
-        .infobox li {
-            margin-bottom: 20px;
-        }
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>lama</title>
+        <link rel="stylesheet" href="styles.css">
         
-        /* infobox는 스크립트로 열리기 전까지 숨김 (기존 로직 유지 시 필요하다면 css나 js로 display:none 처리) */
-        .infobox {
-            display: none; /* lama3의 slideDown을 위해 처음에 숨김 */
-        }
-    </style>
-
-    <script>
-    $(document).ready(function() {
-        
-        // [1단계 -> 2단계] lama1의 이미지를 클릭하면
-        $('.anim').on('click', function() {
-            $('#scene1').hide(); // 장면 1 숨기기
-            $('#scene2').fadeIn(); // 장면 2 보여주기
-        });
-
-        // [2단계 -> 3단계] lama2의 알파카를 클릭하면
-        $('.alpaca').on('click', function() {
-            $('#scene2').hide(); // 장면 2 숨기기
-            $('#scene3').fadeIn(); // 장면 3 보여주기
-        });
-
-        // [3단계 동작] lama3의 알파카를 클릭하면 (애니메이션 + 정보창)
-        $('.alpaca2').on('click',function() {
-            $(this).animate({
-                'margin-left': "+=500px"
+        <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script>
+        $( document ).ready(function() {
+           $('.alpaca2').on('click',function() {
+                  $('.alpaca2').animate({
+                      'margin-left': "+=500px"
+                  });
+               $('.infobox').slideDown();
             });
-            $('.infobox').slideDown();
         });
-
-    });
-    </script>
-</head>
-
-<body>
-
-    <div id="scene1">
-        <img src="img/Asset1.png" class="anim">
-    </div>
-
-
-    <div id="scene2">
-        <img src="img/2alpaca.png" class="alpaca">
-        <img src="img/2curtain.png" class="curtain">
-    </div>
-
-
-    <div id="scene3">
+        </script>
+        
+    </head>
+    <body>
+        
         
         <div class="infobox">
+<style>li {
+        margin-bottom: 20px; /* 각 리스트 아이템의 아래쪽에 10px 간격 추가 */
+    }</style>
             <ul>
-                Doyeon Kwon. 
+                 Doyeon Kwon. 
                 <br><br>
                 maeeeeeemam메~mae
                 eeeeeemamamamemaeeeeemamaememememeemamemaemaemaeeeee...hi
                 <br><br><br>
-                <li><a href="https://en.wikipedia.org/wiki/Seoul" target="_blank">currently<br>in Seoul</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Seoul">currently<br>in Seoul</a></li>
                 <li><a href="mailto:pippobap@gmail.com">contact</a></li>
-                <li><a href="https://www.instagram.com/pip.kwon/" target="_blank">works</a></li>
-                <li><a href="https://youtu.be/xy_NKN75Jhw?si=3c5CXoJNYhr7iaGF" target="_blank">elevator?</a></li>
+                <li><a href="https://www.instagram.com/pip.kwon/">works</a></li>
+                <li><a href="https://youtu.be/xy_NKN75Jhw?si=3c5CXoJNYhr7iaGF">elevator?</a></li>
+        
             </ul>
+            
         </div>
+        
         
         <img src="img/2alpaca.png" class="alpaca2">
         <img src="img/2curtain.png" class="curtain2">
-
-    </div>
-
-</body>
+        
+        
+     
+    </body>
 </html>
